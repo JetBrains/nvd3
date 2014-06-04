@@ -293,6 +293,12 @@ svg .title {
   fill: rgba(0,0,0,1);
 }
 
+.nvd3 .nv-groups a,
+.nvd3 .nv-groups a:visited,
+.nvd3 .nv-groups a:hover,
+.nvd3 .nv-groups a:active {
+    fill: inherit;
+}
 
 /**********
 *  Bars

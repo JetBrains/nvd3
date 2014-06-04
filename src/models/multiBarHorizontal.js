@@ -1,4 +1,3 @@
-
 nv.models.multiBarHorizontal = function() {
   "use strict";
   //============================================================
@@ -28,6 +27,7 @@ nv.models.multiBarHorizontal = function() {
     , xRange
     , yRange
     , dispatch = d3.dispatch('chartClick', 'elementClick', 'elementDblClick', 'elementMouseover', 'elementMouseout')
+    , getUrl = null
     ;
 
   //============================================================
@@ -163,7 +163,14 @@ nv.models.multiBarHorizontal = function() {
               return 'translate(' + y0(stacked ? d.y0 : 0) + ',' + (stacked ? 0 : (j * x.rangeBand() / data.length ) + x(getX(d,i))) + ')'
           });
 
-      barsEnter.append('rect')
+      if (getUrl) {
+          barsEnter = barsEnter.append('a')
+              .attr('xlink:href', function(d, i) {
+                  return getUrl(d, i);
+              });
+      }
+
+      barsEnter = barsEnter.append('rect')
           .attr('width', 0)
           .attr('height', x.rangeBand() / (stacked ? 1 : data.length) )
 
@@ -313,6 +320,12 @@ nv.models.multiBarHorizontal = function() {
   chart.y = function(_) {
     if (!arguments.length) return getY;
     getY = _;
+    return chart;
+  };
+
+  chart.getUrl = function(_) {
+    if (!arguments.length) return getUrl;
+    getUrl = _;
     return chart;
   };
 
