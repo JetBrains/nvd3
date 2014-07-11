@@ -291,6 +291,9 @@ nv.models.multiBarHorizontal = function() {
             .attr('width', function(d,i) {
               return Math.max(Math.abs(y(getY(d,i)) - y(0)),1)
             });
+      bars.select('a').attr('xlink:href', function(d, i) { // mutability is bad
+        return getUrl(d, i);
+      });
 
 
       //store old scales for use in transitions on update
