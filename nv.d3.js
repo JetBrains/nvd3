@@ -5439,6 +5439,12 @@ nv.models.lineChart = function() {
     .orient((rightAlignYAxis) ? 'right' : 'left')
     ;
 
+  interactiveLayer.tooltip.valueFormatter(
+    function(d, i) {
+      return yAxis.tickFormat()(d);
+    }
+  );
+
   //============================================================
 
 
@@ -5675,9 +5681,6 @@ nv.models.lineChart = function() {
                   .position({left: pointXLocation + margin.left, top: e.mouseY + margin.top})
                   .chartContainer(that.parentNode)
                   .enabled(tooltips)
-                  .valueFormatter(function(d,i) {
-                     return yAxis.tickFormat()(d);
-                  })
                   .data(
                       {
                         value: xValue,
