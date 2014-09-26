@@ -8,6 +8,7 @@ nv.models.legend = function() {
     , width = 400
     , height = 20
     , getKey = function(d) { return d.key }
+    , getTitle = function(d) { return d.title }
     , color = nv.utils.defaultColor()
     , align = true
     , rightAlign = true
@@ -91,6 +92,8 @@ nv.models.legend = function() {
           .attr('class','nv-legend-text')
           .attr('dy', '.32em')
           .attr('dx', '8');
+      seriesEnter.append('title')
+          .text(getTitle);
       series.classed('disabled', function(d) { return d.disabled });
       series.exit().remove();
       series.select('circle')
@@ -233,6 +236,12 @@ nv.models.legend = function() {
     if (!arguments.length) return getKey;
     getKey = _;
     return chart;
+  };
+
+  chart.title = function(_) {
+      if (!arguments.length) return getTitle;
+      getTitle = _;
+      return chart;
   };
 
   chart.color = function(_) {
