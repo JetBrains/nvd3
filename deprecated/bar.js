@@ -21,6 +21,8 @@ nv.models.bar = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
+
       x .domain(data.map(function(d,i) { return d[label]; }))
         .rangeRoundBands([0, width - margin.left - margin.right], .1);
 

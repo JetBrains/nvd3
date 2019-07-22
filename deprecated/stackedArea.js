@@ -34,6 +34,8 @@ nv.models.stackedArea = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
+
         // Need to leave data alone to switch between stacked, stream, and expanded
         var dataCopy = JSON.parse(JSON.stringify(data)),
             availableWidth = width - margin.left - margin.right,

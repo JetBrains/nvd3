@@ -17,6 +17,7 @@ nv.models.lineWithLegend = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
 
       var availableWidth = (width  || parseInt(d3.select(this).style('width')) || 960)
                              - margin.left - margin.right,

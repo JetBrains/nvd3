@@ -63,6 +63,7 @@ nv.models.discreteBarChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 

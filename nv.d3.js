@@ -14,6 +14,7 @@ nv.models = nv.models || {}; //stores all the possible models/components
 nv.charts = {}; //stores all the ready to use charts
 nv.graphs = []; //stores all the graphs currently on the page
 nv.logs = {}; //stores some statistics and potential error messages
+nv.SVG_NODE_CLASSNAME = 'nvd3-svg-node';
 
 nv.dispatch = d3.dispatch('render_start', 'render_end');
 
@@ -157,6 +158,7 @@ nv.interactiveGuideline = function() {
 
 	function layer(selection) {
 		selection.each(function(data) {
+            d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
 				var container = d3.select(this);
 				
 				var availableWidth = (width || 960), availableHeight = (height || 400);
@@ -1060,6 +1062,7 @@ nv.utils.optionsFunc = function(args) {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this);
 
 
@@ -1454,6 +1457,7 @@ nv.models.historicalBar = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           availableHeight = height - margin.top - margin.bottom,
           container = d3.select(this);
@@ -1785,6 +1789,7 @@ nv.models.bullet = function() {
 
   function chart(selection) {
     selection.each(function(d, i) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           availableHeight = height - margin.top - margin.bottom,
           container = d3.select(this);
@@ -2188,6 +2193,7 @@ nv.models.bulletChart = function() {
 
   function chart(selection) {
     selection.each(function(d, i) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this);
 
       var availableWidth = (width  || parseInt(container.style('width')) || 960)
@@ -2556,6 +2562,7 @@ nv.models.cumulativeLineChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this).classed('nv-chart-' + id, true),
           that = this;
 
@@ -3293,6 +3300,7 @@ nv.models.discreteBar = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           availableHeight = height - margin.top - margin.bottom,
           container = d3.select(this);
@@ -3666,6 +3674,7 @@ nv.models.discreteBarChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 
@@ -3976,6 +3985,7 @@ nv.models.distribution = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableLength = width - (axis === 'x' ? margin.left + margin.right : margin.top + margin.bottom),
           naxis = axis == 'x' ? 'y' : 'x',
           container = d3.select(this);
@@ -4172,6 +4182,7 @@ nv.models.historicalBarChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 
@@ -4541,6 +4552,7 @@ nv.models.indentedTree = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var depth = 1,
           container = d3.select(this);
 
@@ -4872,6 +4884,7 @@ nv.models.indentedTree = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           container = d3.select(this);
 
@@ -5173,6 +5186,7 @@ nv.models.line = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           availableHeight = height - margin.top - margin.bottom,
           container = d3.select(this);
@@ -5476,6 +5490,7 @@ nv.models.lineChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 
@@ -5952,6 +5967,7 @@ nv.models.linePlusBarChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 
@@ -6386,6 +6402,7 @@ nv.models.lineWithFocusChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 
@@ -6982,6 +6999,7 @@ nv.models.linePlusBarWithFocusChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 
@@ -7586,6 +7604,7 @@ nv.models.multiBar = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           availableHeight = height - margin.top - margin.bottom,
           container = d3.select(this);
@@ -8079,6 +8098,7 @@ nv.models.multiBarChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 
@@ -8571,6 +8591,7 @@ nv.models.multiBarHorizontal = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           availableHeight = height - margin.top - margin.bottom,
           container = d3.select(this);
@@ -9063,6 +9084,7 @@ nv.models.multiBarHorizontalChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 
@@ -9506,6 +9528,7 @@ nv.models.multiChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 
@@ -9944,6 +9967,7 @@ nv.models.ohlcBar = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           availableHeight = height - margin.top - margin.bottom,
           container = d3.select(this);
@@ -10314,6 +10338,7 @@ nv.models.pie = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           availableHeight = height - margin.top - margin.bottom,
           radius = Math.min(availableWidth, availableHeight) / 2,
@@ -10746,6 +10771,7 @@ nv.models.pieChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 
@@ -11049,6 +11075,7 @@ nv.models.scatter = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           availableHeight = height - margin.top - margin.bottom,
           container = d3.select(this);
@@ -11766,6 +11793,7 @@ nv.models.scatterChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 
@@ -12393,6 +12421,7 @@ nv.models.scatterPlusLineChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 
@@ -12939,6 +12968,7 @@ nv.models.sparkline = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           availableHeight = height - margin.top - margin.bottom,
           container = d3.select(this);
@@ -13135,6 +13165,7 @@ nv.models.sparklinePlus = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this);
 
       var availableWidth = (width  || parseInt(container.style('width')) || 960)
@@ -13448,6 +13479,7 @@ nv.models.stackedArea = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           availableHeight = height - margin.top - margin.bottom,
           container = d3.select(this);
@@ -13843,6 +13875,7 @@ nv.models.stackedAreaChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this),
           that = this;
 

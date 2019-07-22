@@ -33,6 +33,8 @@ nv.models.lineWithFocus = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
+      
       var seriesData = data.filter(function(d) { return !d.disabled })
             .map(function(d) { return d.values }),
           availableWidth = width - margin.left - margin.right,

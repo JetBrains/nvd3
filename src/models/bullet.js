@@ -31,6 +31,7 @@ nv.models.bullet = function() {
 
   function chart(selection) {
     selection.each(function(d, i) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var availableWidth = width - margin.left - margin.right,
           availableHeight = height - margin.top - margin.bottom,
           container = d3.select(this);

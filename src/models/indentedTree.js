@@ -27,6 +27,7 @@ nv.models.indentedTree = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var depth = 1,
           container = d3.select(this);
 

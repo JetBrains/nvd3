@@ -22,6 +22,8 @@ nv.models.linePlusBar = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
+      
       var width = getWidth(),
           height = getHeight(),
           availableWidth = width - margin.left - margin.right,

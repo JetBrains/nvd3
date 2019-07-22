@@ -13,6 +13,7 @@ nv.models = nv.models || {}; //stores all the possible models/components
 nv.charts = {}; //stores all the ready to use charts
 nv.graphs = []; //stores all the graphs currently on the page
 nv.logs = {}; //stores some statistics and potential error messages
+nv.SVG_NODE_CLASSNAME = 'nvd3-svg-node';
 
 nv.dispatch = d3.dispatch('render_start', 'render_end');
 

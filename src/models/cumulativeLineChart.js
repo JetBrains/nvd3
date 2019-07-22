@@ -74,6 +74,7 @@ nv.models.cumulativeLineChart = function() {
 
   function chart(selection) {
     selection.each(function(data) {
+      d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
       var container = d3.select(this).classed('nv-chart-' + id, true),
           that = this;
 

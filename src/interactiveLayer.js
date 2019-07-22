@@ -31,6 +31,7 @@ nv.interactiveGuideline = function() {
 
 	function layer(selection) {
 		selection.each(function(data) {
+            d3.select(this).classed(nv.SVG_NODE_CLASSNAME, true);
 				var container = d3.select(this);
 				
 				var availableWidth = (width || 960), availableHeight = (height || 400);
